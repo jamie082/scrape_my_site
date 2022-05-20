@@ -9,6 +9,7 @@ import requests
 # check for 200 status of web page
 
 def check_http_status():
+    print("Status of HTML")
     if response.status_code == 200:
         # if the request is successful return the HTML content
         return response.text
