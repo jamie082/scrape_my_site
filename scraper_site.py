@@ -7,19 +7,15 @@ import requests
 # Verifying tables and their classes
 
 # check for 200 status of web page
-"""
-def check_web_site_status():
+
 soup = BeautifulSoup(r.content, 'html.parser')
 r = requests.get("http://bindfix.net/site/temp_site/frame_1.html")
-    if r.status_code == 200:
+if r.status_code == 200:
    # if the request is successful return the HTML content
-        return r.text
-    else:
-        # throw an exception if an error occured
-        raise Exception("an error occured while fetching html")
-r = requests.get("http://bindfix.net/site/temp_site/frame_1.html")
-soup = BeautifulSoup(r.content, 'html.parser')
-"""
+   return r.text
+else:
+   raise Exception("an error occured while fetching html")
+
 
 response = requests.get("http://bindfix.net/site/temp_site/frame_good.html")
 webpage = response.content
