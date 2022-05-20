@@ -9,10 +9,12 @@ import requests
 # check for 200 status of web page
 
 def check_http_status():
-    print("Status of HTML")
+    response = requests.get("http://bindfix.net/site/temp_site/frame_good.html")
+
+    print("\nStatus of HTML Document")
     if response.status_code == 200:
         # if the request is successful return the HTML content
-        return response.text
+        print("> accessed document fine\n\n")
     else:
         raise Exception("an error occured while fetching html")
 
@@ -29,4 +31,5 @@ def start_program():
             print("Class Section: ", class_counter[n].text.strip())
             print("Paragraph Section: ", p_element[0].text.strip())
             print()
+check_http_status()
 start_program()
