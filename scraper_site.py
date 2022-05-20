@@ -8,18 +8,16 @@ import requests
 
 # check for 200 status of web page
 
-soup = BeautifulSoup(r.content, 'html.parser')
-r = requests.get("http://bindfix.net/site/temp_site/frame_1.html")
-if r.status_code == 200:
-   # if the request is successful return the HTML content
-   return r.text
-else:
-   raise Exception("an error occured while fetching html")
+check_http_status():
 
-
-response = requests.get("http://bindfix.net/site/temp_site/frame_good.html")
-webpage = response.content
-soup = BeautifulSoup(webpage, "html.parser")
+    soup = BeautifulSoup(r.content, 'html.parser')
+    webpage = response.content
+    r = requests.get("http://bindfix.net/site/temp_site/frame_1.html")
+    if r.status_code == 200:
+        # if the request is successful return the HTML content
+        return r.text
+    else:
+        raise Exception("an error occured while fetching html")
 
 for counter in soup.find_all('section', class_='column'):
     class_counter = [a for a in counter.find_all('h1')]
