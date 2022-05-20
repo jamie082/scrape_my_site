@@ -16,18 +16,16 @@ def check_http_status():
         raise Exception("an error occured while fetching html")
 
 #check_http_status()
-    header_info()
 def start_program():
     response = requests.get("http://bindfix.net/site/temp_site/frame_good.html")
     webpage = response.content
     soup = BeautifulSoup(webpage, "html.parser")
 
-
     for counter in soup.find_all('section', class_='column'):
         class_counter = [a for a in counter.find_all('h1')]
         for n, tag in enumerate(counter.find_all('div', class_='body_element')):
-            p_element = [x for x in tag.find_all('p', class_='body_element')] # paragraph element
-            print("Paragraph #1", class_counter[n].text.strip())
-            #print("Class Section", p_element[3].text.strip())
+            p_element = [x for x in tag.find_all('p')] # paragraph element
+            print("Class Section: ", class_counter[n].text.strip())
+            print("Paragraph Section: ", p_element[0].text.strip())
             print()
 start_program()
