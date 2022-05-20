@@ -9,15 +9,14 @@ import requests
 # check for 200 status of web page
 
 def check_http_status():
-    r = requests.get("http://bindfix.net/site/temp_site/frame_1.html")
-    soup = BeautifulSoup(r.content, 'html.parser')
-    webpage = r.content
-    if r.status_code == 200:
+    response = requests.get("http://bindfix.net/site/temp_site/frame_good.html")
+    webpage = response.content
+    soup = BeautifulSoup(webpage, "html.parser")
+    if response.status_code == 200:
         # if the request is successful return the HTML content
-        return r.text
+        return response.text
     else:
         raise Exception("an error occured while fetching html")
-
 
     for counter in soup.find_all('section', class_='column'):
        class_counter = [a for a in counter.find_all('h1')]
@@ -26,6 +25,5 @@ def check_http_status():
             print("Paragraph #1", class_counter[n].text.strip())
             #print("Class Section", p_element[3].text.strip())
             print()
-
 
 check_http_status()
