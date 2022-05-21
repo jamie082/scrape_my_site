@@ -29,7 +29,5 @@ def start_program():
             print("Paragraph Section: ", p_element[0].text.strip())
             print()
 
-
-
 check_http_status()
 start_program()
