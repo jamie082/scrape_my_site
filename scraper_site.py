@@ -2,10 +2,6 @@
 from bs4 import BeautifulSoup
 import requests
 
-#http://blog.fixnter.com/python-beautifulsoup-examples
-#http://blog.logrocket.com/build-python-webscraper-beautiful-soup/
-# Verifying tables and their classes
-
 # check for 200 status of web page
 
 def check_http_status():
@@ -31,5 +27,6 @@ def start_program():
             print("Class Section: ", class_counter[n].text.strip())
             print("Paragraph Section: ", p_element[0].text.strip())
             print()
+
 check_http_status()
 start_program()
