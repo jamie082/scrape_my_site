@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 from bs4 import BeautifulSoup
+import pandas as pd
 import requests
 
 # check for 200 status of web page
@@ -27,6 +28,8 @@ def start_program():
             print("Class Section: ", class_counter[n].text.strip())
             print("Paragraph Section: ", p_element[0].text.strip())
             print()
+
+
 
 check_http_status()
 start_program()
